@@ -51,5 +51,7 @@ def tweetsDiarios(df):
     # Set the date as index
     data_ts = df.set_index('date')
     # Resample the time series to daily
-    daily = data_ts["id"].resample('D').count()
-    return pd.DataFrame(daily)
+    data_ts = limpio.set_index('date')
+    d = data_ts["id"].resample('D').count()
+    daily = pd.DataFrame(d).rename(columns={"id": "n_tweets"})
+    return daily
