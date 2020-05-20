@@ -46,3 +46,10 @@ def limpiador(df):
     df = df.drop_duplicates(subset ="id", inplace = True) 
     return df
 
+# Function to count the number of tweets per day
+def tweetsDiarios(df):
+    # Set the date as index
+    data_ts = df.set_index('date')
+    # Resample the time series to daily
+    daily = data_ts["id"].resample('D').count()
+    return pd.DataFrame(daily)
