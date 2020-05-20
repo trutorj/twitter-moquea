@@ -71,6 +71,7 @@ pearson
 ##############################################################
 def plot_todos():
     f,ax=plt.subplots(4,1,figsize=(14,14))
+    f.suptitle('Number of tweets vs Polen leves (normalized)', fontsize = 32)
     plt.subplots_adjust(left=None, bottom=None, right=None, top=None,
                 wspace=None, hspace=0.4)
     for i,e in enumerate(range(2017,2021)):
