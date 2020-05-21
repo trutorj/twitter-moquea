@@ -8,6 +8,18 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import io
 import base64
+#Mongomovidas
+import pymongo
+from pymongo import MongoClient
+from src.config import DBURL
+
+####################################
+#            API ENDPOINTS         #
+####################################
+
+@app.route("/")
+def hello():
+        return "Ola k fase?"
 
 # Call analysis results
 @app.route("/tweets/results")
@@ -17,6 +29,32 @@ def years_plots():
     return send_file(bytes_obj,
                      attachment_filename='grafica.png',
                      mimetype='image/png')
+
+# Insert tweets into db
+@app.route("/tweets/add/<location>/search")
+def insertTweets(location):
+    client = pymongo.MongoClient(DBURL)
+    print(f"Connected to {DBURL}")
+    # Select the collection
+    db = client.get_default_database()["tweets_col"]
+    # Define range
+    date_start = request.args.get("start")
+    date_end = request.args.get("end")
+
+    # Apply the function to search the tweets:
+    df = extractorTweets(search_terms, date_start, date_end, location)
+    # Clean
+    clean = limpiador(df)
+
+    # Parse the df to json and add it to db
+    tweets = json.loads(clean.to_json(orient="records"))
+    x = db.insert_many(tweets)
+    return {
+            "status": "Tweets added",
+            "dbresponse":dumps(x.inserted_ids)}
+
+
+
 # Call raw tweets
 @app.route("/tweets/<location>/search")
 def searchTweets(location):
