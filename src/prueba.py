@@ -1,4 +1,4 @@
-import tweepy
+import tweepy 
 import os
 from dotenv import load_dotenv
 
@@ -14,10 +14,20 @@ twitter_keys = {
 #Setup access to API
 auth = tweepy.OAuthHandler(twitter_keys['consumer_key'], twitter_keys['consumer_secret'])
 auth.set_access_token(twitter_keys['access_token_key'], twitter_keys['access_token_secret'])
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
-api = tweepy.API(auth)
+# Search parameters
+search_term = "gramíneas"
+tweets = tweepy.Cursor(api.search, 
+                   q= search_term,
+                   lang="es",
+                   since="2020-05-18").items(1000)
+
+all_tweets = [tweet.place for tweet in tweets]
 
 #Make call on home timeline, print each tweets text
-public_tweets = api.home_timeline()
-for tweet in api.search('gramíneas, alergia'):
-    print(tweet.text)
+#public_tweets = api.home_timeline()
+#for tweet in api.search('gramíneas, alergia'):
+#    print(tweet.text)
+
+all_tweets[:5]

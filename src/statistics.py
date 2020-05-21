@@ -71,7 +71,7 @@ pearson
 ##############################################################
 def plot_todos():
     f,ax=plt.subplots(4,1,figsize=(14,14))
-    f.suptitle('Number of tweets vs Polen leves (normalized)', fontsize = 32)
+    f.suptitle('Number of tweets vs Pollen level (normalized)', fontsize = 32)
     plt.subplots_adjust(left=None, bottom=None, right=None, top=None,
                 wspace=None, hspace=0.4)
     for i,e in enumerate(range(2017,2021)):
@@ -79,7 +79,7 @@ def plot_todos():
         pol=joined_list[i][["normalized_pol"]]
         twe=joined_list[i][["normalized_twe"]]
         plt.plot(twe, label = "Number of tweets")
-        plt.plot(pol, label = "Polen grains/$m^3$")
+        plt.plot(pol, label = "Pollen grains/$m^3$")
         plt.legend()
         plt.title(f'{e}. Overall Pearson r = {overall_pearson_r[i]}')
 
