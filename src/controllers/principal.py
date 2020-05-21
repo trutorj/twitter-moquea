@@ -1,5 +1,5 @@
 from src.app import app
-from flask import request, send_file, Response
+from flask import Flask, request, send_file, Response, render_template
 from bson.json_util import dumps
 from src.statistics import plot_todos, joined_list, overall_pearson_r
 from src.tweet_functions import search_terms, tweetsDiarios,extractorTweets, limpiador
@@ -18,8 +18,8 @@ from src.config import DBURL
 ####################################
 
 @app.route("/")
-def hello():
-        return "Ola k fase?"
+def inicio():
+    return render_template('miweb.html')
 
 # Call analysis results
 @app.route("/tweets/results")
