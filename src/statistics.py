@@ -15,7 +15,7 @@ def Normalizador(df, column):
 
 # 1. Polen data
 # Import the data
-polen = pd.read_csv('~/Documentos/IRONHACK/FINAL/twitter-moquea/data/SEAIC_Madrid.csv')
+polen = pd.read_csv('../data/SEAIC_Madrid.csv')
 
 # Calculate the average
 polen["mean"] = polen[["Subiza", "Infanta_Leonor"]].mean(axis=1)
@@ -33,7 +33,7 @@ for e in polen_years:
 
 #2. Tweet data
 # Import the data
-tweet_series = pd.read_csv('~/Documentos/IRONHACK/FINAL/twitter-moquea/data/tweets_series.csv')
+tweet_series = pd.read_csv('../data/tweets_series.csv')
 
 # Convert date to datetime and set it as index
 tweet_series["date"] = pd.to_datetime(tweet_series["date"])
