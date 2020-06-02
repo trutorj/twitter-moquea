@@ -57,3 +57,4 @@ To give to the possible users a tool for extracting and analyzing the tweets, an
 
 The time series for each year and their Pearson correlation's value are shown in the next figure.
 
+<img align="center" src="img/results.png">

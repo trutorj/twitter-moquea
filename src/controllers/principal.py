@@ -102,7 +102,7 @@ def countTweets(location):
     df = extractorTweets(search_terms, date_start, date_end, location)
     clean = limpiador(df)
     daily = tweetsDiarios(clean)
-    print('checawey',daily.columns)
+    
    
     # Initialize the matplotlib figure
     img = io.BytesIO()
