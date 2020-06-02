@@ -22,7 +22,7 @@ The pollination period was set from April 1st to May 31st. In order to increase 
 ### Data cleaning and statistical analysis
 
 There were a lot of tweets containing the selected keywords which weren't related with allergic episodes. Therefore, the first step in the analysis was remove all these tweets by filtering by words like 'alegría', 'perros', 'gatos', 'Covid', etc.  The total clean tweets for every year are shown in the next table
-
+<center>
 | Year  |Raw tweets| Clean tweets|
 |------:|---------:|------------:|
 |2017   |        23|           21|
@@ -31,8 +31,9 @@ There were a lot of tweets containing the selected keywords which weren't relate
 |2020   |      2252|         1081|
 
 **Table 1.** Number of gathered tweets before and after cleaning
-
+</center>
 The next step was normalize both series for each year to distinguish better the peaks. The formula used was:
+
 y = (x - min) / (max - min)
 
 Finally, the possible correlation between both series was analyzed by Pearson correlation.
