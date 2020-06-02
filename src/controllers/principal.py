@@ -6,6 +6,7 @@ from src.tweet_functions import search_terms, tweetsDiarios,extractorTweets, lim
 import json
 import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib.dates import DateFormatter
 import io
 import base64
 #Mongomovidas
@@ -111,6 +112,10 @@ def countTweets(location):
     plt.plot(daily.n_tweets)
     plt.xlabel("Day")
     plt.ylabel("Number of tweets")
+    # Define the date format
+    date_form = DateFormatter("%m-%d")
+    ax.xaxis.set_major_formatter(date_form)
+    # Save plot
     plt.savefig(img, format='png')
     img.seek(0)
     plot_url = base64.b64encode(img.getvalue()).decode()
