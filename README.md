@@ -58,3 +58,19 @@ To give to the possible users a tool for extracting and analyzing the tweets, an
 The time series for each year and their Pearson correlation's value are shown in the next figure.
 
 <img align="center" src="img/results.png">
+
+As shown in the plots, except for 2019, it looks there is no correlation between allergic symptoms episodes related tweets and pollen levels. This could be because of the low number of tweets used in this analysis. To improve the results, in future works it be necessary to increase the number of locations.
+
+### API endpoints and results
+
+* Scraping the tweets for a location and date range
+
+<img align="center" src="img/raw_tweets.png">
+
+* Plot the number of tweets (cleaned) by search term for a location and date range.
+
+<img align="center" src="img/term_tweets.png">
+
+* Plot the number of tweets (cleaned) per day for a location and date range.
+
+<img align="center" src="img/count_tweets.png">
