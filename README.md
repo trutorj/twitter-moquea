@@ -3,7 +3,7 @@
 <img align="center" width="756" height="189" src="img/twitmoqlogo.png">
 
 ## Introduction 
-This is a project aiming to determine if it is possible to detect grass pollen levels peaks through tweets from allergic people. First,
+This is a project aiming to determine if it is possible to detect grass pollen levels peaks through tweets from allergic people. We have extracted tweets from users reporting allergic symptons and then, these have been compared with pollen levels data gathered by the Sociedad Española de Alergología e Inmunología Clínica. Furthermore, an API has been developed for performing these tasks: tweets search and cleaning and results visualisation.
 
 ## Methodology
 
